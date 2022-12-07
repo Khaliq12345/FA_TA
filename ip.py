@@ -11,7 +11,7 @@ from latest_user_agents import get_random_user_agent
 column1, column2 = st.columns(2)
 column1.subheader('Sentimental Analysis')
 column2.subheader('Technical Analysis')
-symbol = st.selectbox('Symbol to analyse', (
+symbol = st.selectbox('Symbol to analyse the sentiments', (
     'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
     'USD/JPY', 'XAU/USD'
