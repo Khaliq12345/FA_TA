@@ -6,7 +6,8 @@ import streamlit as st
 from bs4 import BeautifulSoup
 from latest_user_agents import get_random_user_agent
 
-st.title('Technical and Sentimental Analysis')
+column1, column2 = st.columns(2)
+column1.title('Technical and Sentimental Analysis')
 symbol = st.selectbox('Symbol to analyse', (
     'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
