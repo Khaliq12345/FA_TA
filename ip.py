@@ -15,7 +15,7 @@ symbol1 = column1.selectbox('Symbol to analyse the sentiments', (
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
     'USD/JPY', 'XAU/USD'
 ))
-button = column1.button('Analyse')
+button = st.button('Analyse')
 
 if button:
     with sync_playwright() as playwright:
@@ -53,38 +53,37 @@ if button:
         column1.metric('Buy', value = float(buy), delta = buy2)
         column1.metric('Sell', value = float(sell), delta = sell2)
 
-column2.subheader('Technical Analysis')
-symbol2 = column2.selectbox('Symbol to analyse', (
-    'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
-    'GBPJPY', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 
-    'USDJPY', 'XAUUSD'
-))
-button2 = column2.button('Summarize')
+        column2.subheader('Technical Analysis')
+        symbol2 = column2.selectbox('Symbol to analyse', (
+            'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
+            'GBPJPY', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 
+            'USDJPY', 'XAUUSD'
+        ))
 
-Interval.INTERVAL_1_MINUTE = "1m"
-Interval.INTERVAL_5_MINUTES = "5m"
-Interval.INTERVAL_15_MINUTES = "15m"
-Interval.INTERVAL_30_MINUTES = "30m"
-Interval.INTERVAL_1_HOUR = "1h"
-Interval.INTERVAL_2_HOURS = "2h"
-Interval.INTERVAL_4_HOURS = "4h"
-Interval.INTERVAL_1_DAY = "1d"
-Interval.INTERVAL_1_WEEK = "1W"
-Interval.INTERVAL_1_MONTH = "1M"
+        Interval.INTERVAL_1_MINUTE = "1m"
+        Interval.INTERVAL_5_MINUTES = "5m"
+        Interval.INTERVAL_15_MINUTES = "15m"
+        Interval.INTERVAL_30_MINUTES = "30m"
+        Interval.INTERVAL_1_HOUR = "1h"
+        Interval.INTERVAL_2_HOURS = "2h"
+        Interval.INTERVAL_4_HOURS = "4h"
+        Interval.INTERVAL_1_DAY = "1d"
+        Interval.INTERVAL_1_WEEK = "1W"
+        Interval.INTERVAL_1_MONTH = "1M"
 
-time_frame = column2.radio('TimeFrame', (
-    '1m', '5m', '15m', '30m', '1h',
-    '2h','4h', '1d', '1W', '1M' 
-), horizontal=True)
+        time_frame = column2.radio('TimeFrame', (
+            '1m', '5m', '15m', '30m', '1h',
+            '2h','4h', '1d', '1W', '1M' 
+        ), horizontal=True)
 
-handler = TA_Handler(
-    symbol= symbol2,
-    exchange="FX_IDC",
-    screener="forex",
-    interval= time_frame,
-    timeout=None
-)
+        handler = TA_Handler(
+            symbol= symbol2,
+            exchange="FX_IDC",
+            screener="forex",
+            interval= time_frame,
+            timeout=None
+        )
 
-summary = handler.get_analysis().summary
-df = pd.DataFrame(summary, index=[0])
-column2.table(df)
+        summary = handler.get_analysis().summary
+        df = pd.DataFrame(summary, index=[0])
+        column2.table(df)
