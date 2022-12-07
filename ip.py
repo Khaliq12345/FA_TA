@@ -88,9 +88,8 @@ def analyse2():
     df = pd.DataFrame(summary, index=[0])
     column2.table(df)
 
-if __main__ == '__name__':
-    if button:
-        analyse1()
-    else:
-        analyse2()
+if button:
+    analyse1()
+else:
+    analyse2()
 
