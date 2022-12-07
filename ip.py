@@ -10,15 +10,14 @@ from latest_user_agents import get_random_user_agent
 
 column1, column2 = st.columns(2)
 column1.subheader('Sentimental Analysis')
-column2.subheader('Technical Analysis')
-symbol = column1.selectbox('Symbol to analyse the sentiments', (
+symbol1 = column1.selectbox('Symbol to analyse the sentiments', (
     'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
     'USD/JPY', 'XAU/USD'
 ))
 button = column1.button('Analyse')
 
-if button:
+def analyse1():
     with sync_playwright() as playwright:
         ua = get_random_user_agent()
         chromium = playwright.chromium # or "firefox" or "webkit".
@@ -29,7 +28,7 @@ if button:
         page.goto("https://fxssi.com/tools/current-ratio?filter=AUDJPY", timeout=100000)
 
 
-        page.locator(f'div.tool-button:text("{symbol}")').click()
+        page.locator(f'div.tool-button:text("{symbol1}")').click()
         sleep(2)
         
         soup = BeautifulSoup(page.content(), 'lxml')
@@ -76,15 +75,22 @@ time_frame = column2.radio('TimeFrame', (
     '2h','4h', '1d', '1W', '1M' 
 ), horizontal=True)
 
-handler = TA_Handler(
-    symbol= symbol2,
-    exchange="FX_IDC",
-    screener="forex",
-    interval= time_frame,
-    timeout=None
-)
+def analyse2():
+    handler = TA_Handler(
+        symbol= symbol2,
+        exchange="FX_IDC",
+        screener="forex",
+        interval= time_frame,
+        timeout=None
+    )
 
-summary = handler.get_analysis().summary
-df = pd.DataFrame(summary, index=[0])
-column2.table(df)
+    summary = handler.get_analysis().summary
+    df = pd.DataFrame(summary, index=[0])
+    column2.table(df)
+
+if __main__ == '__name__':
+    if button:
+        analyse1()
+    else:
+        analyse2()
 
