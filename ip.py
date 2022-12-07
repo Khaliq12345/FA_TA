@@ -16,7 +16,7 @@ symbol = column1.selectbox('Symbol to analyse the sentiments', (
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
     'USD/JPY', 'XAU/USD'
 ))
-button = column1.button()
+button = column1.button('Analyse')
 
 if button:
     with sync_playwright() as playwright:
