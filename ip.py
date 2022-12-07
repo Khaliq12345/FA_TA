@@ -40,7 +40,7 @@ if button:
         # other actions...
         browser.close()
         
-        col1, col2 = st.columns(2)
+        col1, col2 = column1.columns(2)
         
         if buy > sell:
             buy2 = buy
