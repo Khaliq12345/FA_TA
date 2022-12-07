@@ -52,7 +52,7 @@ if symbol:
         col2.metric('Sell', value = float(sell), delta = sell2)
         
 column2.subheader('Technical Analysis')
-symbol2 = column1.selectbox('Symbol to analyse', (
+symbol2 = column2.selectbox('Symbol to analyse', (
     'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
     'GBPJPY', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 
     'USDJPY', 'XAUUSD'
@@ -84,5 +84,5 @@ handler = TA_Handler(
 
 summary = handler.get_analysis().summary
 df = pd.DataFrame(summary, index=[0])
-column2.dataframe(df)
+column2.table(df)
 
