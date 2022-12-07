@@ -52,12 +52,14 @@ if button:
 
         column1.metric('Buy', value = float(buy), delta = buy2)
         column1.metric('Sell', value = float(sell), delta = sell2)
-        
+
+column2.subheader('Technical Analysis')
 symbol2 = column2.selectbox('Symbol to analyse', (
     'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
     'GBPJPY', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 
     'USDJPY', 'XAUUSD'
 ))
+button2 = column2.button('Summarize')
 
 Interval.INTERVAL_1_MINUTE = "1m"
 Interval.INTERVAL_5_MINUTES = "5m"
