@@ -9,7 +9,8 @@ from latest_user_agents import get_random_user_agent
 st.title('Technical and Sentimental Analysis')
 symbol = st.text_input('Symbol to analyse')
 
-if symbol:
+button = st.button('Analyse')
+if button:
     with sync_playwright() as playwright:
         ua = get_random_user_agent()
         chromium = playwright.chromium # or "firefox" or "webkit".
