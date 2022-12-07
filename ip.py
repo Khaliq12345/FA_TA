@@ -53,3 +53,24 @@ if button:
         col2.metric('Sell', value = float(sell), delta = sell2)
         
 column2.subheader('Technical Analysis')
+symbol2 = column1.selectbox('Symbol to analyse', (
+    'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
+    'GBPJPY', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 
+    'USDJPY', 'XAUUSD'
+))
+
+Interval.INTERVAL_1_MINUTE = "1m"
+Interval.INTERVAL_5_MINUTES = "5m"
+Interval.INTERVAL_15_MINUTES = "15m"
+Interval.INTERVAL_30_MINUTES = "30m"
+Interval.INTERVAL_1_HOUR = "1h"
+Interval.INTERVAL_2_HOURS = "2h"
+Interval.INTERVAL_4_HOURS = "4h"
+Interval.INTERVAL_1_DAY = "1d"
+Interval.INTERVAL_1_WEEK = "1W"
+Interval.INTERVAL_1_MONTH = "1M"
+
+time_frame = column2.radio('TimeFrame', (
+    '1m', '5m', '15m', '30m', '1h',
+    '2h','4h', '1d', '1W', '1M' 
+), horizontal=True)
