@@ -50,8 +50,8 @@ if symbol:
             buy2 = '-' + buy
             sell2 = sell
             
-        col1.metric('Buy', value = float(buy), delta = buy2)
-        col2.metric('Sell', value = float(sell), delta = sell2)
+        column1.metric('Buy', value = float(buy), delta = buy2)
+        column1.metric('Sell', value = float(sell), delta = sell2)
         
 symbol2 = column2.selectbox('Symbol to analyse', (
     'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
