@@ -34,6 +34,13 @@ if button:
         browser.close()
         
         col1, col2 = st.columns(2)
-
-        col1.metric('Buy', value = float(buy), delta = buy)
-        col2.metric('Sell', value = float(sell), delta = sell)
+        
+        if buy > sell:
+            buy2 = buy
+            sell2 = "-" + sell
+        else:
+            buy2 = '-' + buy
+            sell2 = sell
+            
+        col1.metric('Buy', value = float(buy), delta = buy2)
+        col2.metric('Sell', value = float(sell), delta = sell2)
