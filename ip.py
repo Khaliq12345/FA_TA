@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from latest_user_agents import get_random_user_agent
 
 column1, column2 = st.columns(2)
-column1.title('Sentimental Analysis')
+column1.subheader('Sentimental Analysis')
 symbol = column1.selectbox('Symbol to analyse', (
     'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
@@ -40,7 +40,7 @@ if button:
         # other actions...
         browser.close()
         
-        col1, col2 = column1.columns(2)
+        col1, col2 = st.columns(2)
         
         if buy > sell:
             buy2 = buy
