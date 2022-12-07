@@ -7,7 +7,11 @@ from bs4 import BeautifulSoup
 from latest_user_agents import get_random_user_agent
 
 st.title('Technical and Sentimental Analysis')
-symbol = st.text_input('Symbol to analyse')
+symbol = st.radio('Symbol to analyse', (
+    'EUR/USD', 'AUD/USD'
+))
+
+#symbol = st.text_input('Symbol to analyse')
 
 button = st.button('Analyse')
 if button:
