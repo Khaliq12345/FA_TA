@@ -75,21 +75,17 @@ time_frame = column2.radio('TimeFrame', (
     '2h','4h', '1d', '1W', '1M' 
 ), horizontal=True)
 
-def analyse2():
-    handler = TA_Handler(
-        symbol= symbol2,
-        exchange="FX_IDC",
-        screener="forex",
-        interval= time_frame,
-        timeout=None
-    )
+handler = TA_Handler(
+    symbol= symbol2,
+    exchange="FX_IDC",
+    screener="forex",
+    interval= time_frame,
+    timeout=None
+)
 
-    summary = handler.get_analysis().summary
-    df = pd.DataFrame(summary, index=[0])
-    column2.table(df)
+summary = handler.get_analysis().summary
+df = pd.DataFrame(summary, index=[0])
+column2.table(df)
 
 if button:
     analyse1()
-else:
-    analyse2()
-
