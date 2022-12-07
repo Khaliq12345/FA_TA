@@ -4,3 +4,4 @@ lxml==4.9.1
 playwright
 latest-user-agents==0.0.3
 tradingview-ta
+pandas
