@@ -10,7 +10,7 @@ from latest_user_agents import get_random_user_agent
 
 column1, column2 = st.columns(2)
 column1.subheader('Sentimental Analysis')
-symbol = column1.selectbox('Symbol to analyse', (
+symbol = st.selectbox('Symbol to analyse', (
     'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
     'USD/JPY', 'XAU/USD'
@@ -52,11 +52,6 @@ if symbol:
         col2.metric('Sell', value = float(sell), delta = sell2)
         
 column2.subheader('Technical Analysis')
-symbol2 = column2.selectbox('Symbol to analyse', (
-    'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
-    'GBPJPY', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 
-    'USDJPY', 'XAUUSD'
-))
 
 Interval.INTERVAL_1_MINUTE = "1m"
 Interval.INTERVAL_5_MINUTES = "5m"
@@ -75,7 +70,7 @@ time_frame = column2.radio('TimeFrame', (
 ), horizontal=True)
 
 handler = TA_Handler(
-    symbol= symbol2,
+    symbol= symbol,
     exchange="FX_IDC",
     screener="forex",
     interval= time_frame,
