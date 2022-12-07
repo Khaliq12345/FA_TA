@@ -7,16 +7,16 @@ from bs4 import BeautifulSoup
 from latest_user_agents import get_random_user_agent
 
 column1, column2 = st.columns(2)
-column1.title('Technical and Sentimental Analysis')
-symbol = st.selectbox('Symbol to analyse', (
+column1.title('Sentimental Analysis')
+symbol = column1.selectbox('Symbol to analyse', (
     'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
     'USD/JPY', 'XAU/USD'
 ))
 
-#symbol = st.text_input('Symbol to analyse')
+#symbol = column1.text_input('Symbol to analyse')
 
-button = st.button('Analyse')
+button = column1.button('Analyse')
 if button:
     with sync_playwright() as playwright:
         ua = get_random_user_agent()
