@@ -10,6 +10,7 @@ from latest_user_agents import get_random_user_agent
 
 column1, column2 = st.columns(2)
 column1.subheader('Sentimental Analysis')
+column2.subheader('Technical Analysis')
 symbol = st.selectbox('Symbol to analyse', (
     'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
     'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
@@ -51,33 +52,33 @@ if symbol:
         col1.metric('Buy', value = float(buy), delta = buy2)
         col2.metric('Sell', value = float(sell), delta = sell2)
         
-column2.subheader('Technical Analysis')
 
-Interval.INTERVAL_1_MINUTE = "1m"
-Interval.INTERVAL_5_MINUTES = "5m"
-Interval.INTERVAL_15_MINUTES = "15m"
-Interval.INTERVAL_30_MINUTES = "30m"
-Interval.INTERVAL_1_HOUR = "1h"
-Interval.INTERVAL_2_HOURS = "2h"
-Interval.INTERVAL_4_HOURS = "4h"
-Interval.INTERVAL_1_DAY = "1d"
-Interval.INTERVAL_1_WEEK = "1W"
-Interval.INTERVAL_1_MONTH = "1M"
 
-time_frame = column2.radio('TimeFrame', (
-    '1m', '5m', '15m', '30m', '1h',
-    '2h','4h', '1d', '1W', '1M' 
-), horizontal=True)
+        Interval.INTERVAL_1_MINUTE = "1m"
+        Interval.INTERVAL_5_MINUTES = "5m"
+        Interval.INTERVAL_15_MINUTES = "15m"
+        Interval.INTERVAL_30_MINUTES = "30m"
+        Interval.INTERVAL_1_HOUR = "1h"
+        Interval.INTERVAL_2_HOURS = "2h"
+        Interval.INTERVAL_4_HOURS = "4h"
+        Interval.INTERVAL_1_DAY = "1d"
+        Interval.INTERVAL_1_WEEK = "1W"
+        Interval.INTERVAL_1_MONTH = "1M"
 
-handler = TA_Handler(
-    symbol= symbol,
-    exchange="FX_IDC",
-    screener="forex",
-    interval= time_frame,
-    timeout=None
-)
+        time_frame = column2.radio('TimeFrame', (
+            '1m', '5m', '15m', '30m', '1h',
+            '2h','4h', '1d', '1W', '1M' 
+        ), horizontal=True)
 
-summary = handler.get_analysis().summary
-df = pd.DataFrame(summary, index=[0])
-column2.table(df)
+        handler = TA_Handler(
+            symbol= symbol,
+            exchange="FX_IDC",
+            screener="forex",
+            interval= time_frame,
+            timeout=None
+        )
+
+        summary = handler.get_analysis().summary
+        df = pd.DataFrame(summary, index=[0])
+        column2.table(df)
 
