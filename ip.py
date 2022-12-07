@@ -4,6 +4,7 @@ from playwright.sync_api import sync_playwright
 from time import sleep
 import streamlit as st
 from bs4 import BeautifulSoup
+from tradingview_ta import TA_Handler, Interval, Exchange
 from latest_user_agents import get_random_user_agent
 
 column1, column2 = st.columns(2)
