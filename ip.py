@@ -51,3 +51,5 @@ if button:
             
         col1.metric('Buy', value = float(buy), delta = buy2)
         col2.metric('Sell', value = float(sell), delta = sell2)
+        
+column2.subheader('Technical Analysis')
