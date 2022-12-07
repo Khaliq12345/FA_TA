@@ -16,10 +16,7 @@ symbol = column1.selectbox('Symbol to analyse', (
     'USD/JPY', 'XAU/USD'
 ))
 
-#symbol = column1.text_input('Symbol to analyse')
-
-button = column1.button('Analyse')
-if button:
+if symbol:
     with sync_playwright() as playwright:
         ua = get_random_user_agent()
         chromium = playwright.chromium # or "firefox" or "webkit".
@@ -87,5 +84,5 @@ handler = TA_Handler(
 
 summary = handler.get_analysis().summary
 df = pd.DataFrame(summary, index=[0])
-st.dataframe(df)
+column2.dataframe(df)
 
