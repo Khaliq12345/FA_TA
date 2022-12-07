@@ -75,3 +75,16 @@ time_frame = column2.radio('TimeFrame', (
     '1m', '5m', '15m', '30m', '1h',
     '2h','4h', '1d', '1W', '1M' 
 ), horizontal=True)
+
+handler = TA_Handler(
+    symbol= symbol2,
+    exchange="FX_IDC",
+    screener="forex",
+    interval= time_frame,
+    timeout=None
+)
+
+summary = handler.get_analysis().summary
+df = pd.DataFrame(summary)
+st.dataframe(df)
+
