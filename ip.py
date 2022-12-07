@@ -8,7 +8,9 @@ from latest_user_agents import get_random_user_agent
 
 st.title('Technical and Sentimental Analysis')
 symbol = st.selectbox('Symbol to analyse', (
-    'EUR/USD', 'AUD/USD'
+    'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
+    'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
+    'USD/JPY', 'XAU/USD'
 ))
 
 #symbol = st.text_input('Symbol to analyse')
