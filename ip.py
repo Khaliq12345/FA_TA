@@ -1,4 +1,5 @@
-
+import os
+os.system("playwright install chromium")
 from playwright.sync_api import sync_playwright
 from time import sleep
 import streamlit as st
