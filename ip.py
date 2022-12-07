@@ -35,5 +35,5 @@ if button:
         
         col1, col2 = st.columns(2)
 
-        col1.metric('Buy', value = float(buy), delta = f'{float(buy)%}')
-        col2.metric('Sell', value = float(sell), delta = f'{float(sell)%}')
+        col1.metric('Buy', value = float(buy), delta = buy)
+        col2.metric('Sell', value = float(sell), delta = sell)
