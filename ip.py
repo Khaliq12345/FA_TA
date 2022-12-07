@@ -2,6 +2,7 @@ import os
 os.system("playwright install chromium")
 from playwright.sync_api import sync_playwright
 from time import sleep
+import pandas as pd
 import streamlit as st
 from bs4 import BeautifulSoup
 from tradingview_ta import TA_Handler, Interval, Exchange
