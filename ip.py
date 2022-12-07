@@ -86,6 +86,6 @@ handler = TA_Handler(
 )
 
 summary = handler.get_analysis().summary
-df = pd.DataFrame(summary)
+df = pd.DataFrame(summary, index=[0])
 st.dataframe(df)
 
