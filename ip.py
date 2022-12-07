@@ -29,6 +29,7 @@ if symbol:
 
 
         page.locator(f'div.tool-button:text("{symbol}")').click()
+        sleep(2)
         
         soup = BeautifulSoup(page.content(), 'lxml')
 
