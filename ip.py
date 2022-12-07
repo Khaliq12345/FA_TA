@@ -52,10 +52,10 @@ if symbol:
         col1.metric('Buy', value = float(buy), delta = buy2)
         col2.metric('Sell', value = float(sell), delta = sell2)
         
-symbol2 = column2.selectbox('Symbol to analyse', (
-    'EUR/USD', 'AUD/USD', 'AUD/JPY', 'EUR/AUD', 'EUR/JPY', 
-    'GBP/JPY', 'GBP/USD', 'NZD/USD', 'USD/CAD', 'USD/CHF', 
-    'USD/JPY', 'XAU/USD'
+symbol2 = column1.selectbox('Symbol to analyse', (
+    'EURUSD', 'AUDUSD', 'AUDJPY', 'EURAUD', 'EURJPY', 
+    'GBPJPY', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 
+    'USDJPY', 'XAUUSD'
 ))
 
 Interval.INTERVAL_1_MINUTE = "1m"
