@@ -30,8 +30,8 @@ if symbol:
         
         # other actions...
         browser.close()
+        
+        col1, col2 = st.columns(2)
 
-col1, col2 = st.columns(2)
-
-col1.metric('Buy', int(buy))
-col2.metric('Sell', int(sell))
+        col1.metric('Buy', int(buy))
+        col2.metric('Sell', int(sell))
